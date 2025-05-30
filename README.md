@@ -23,11 +23,11 @@ The linear programming (LP) relaxation of a mixed-integer programming (MIP) mode
 
 **Formulation Example**  
 MIP:  
-minimize $ c^T x + d^T y $  
-subject to $ Ax + Gy \leq b $, $ x \in \mathbb{Z}_+^n $, $ y \in \mathbb{R}_+^m $  
+minimize $c^T x + d^T y$  
+subject to $Ax + Gy \leq b$, $x \in \mathbb{Z}_+^n$, $y \in \mathbb{R}_+^m$  
 LP Relaxation:  
-minimize $ c^T x + d^T y $  
-subject to $ Ax + Gy \leq b $, $ x \in \mathbb{R}_+^n $, $ y \in \mathbb{R}_+^m $  
+minimize $c^T x + d^T y$  
+subject to $Ax + Gy \leq b$, $x \in \mathbb{R}_+^n$, $y \in \mathbb{R}_+^m$  
 (OD_BranchAndBound.pdf, p.7)
 
 **Implications for Branch-and-Bound**  
@@ -142,16 +142,16 @@ In linear programming, every problem (the **primal**) has an associated **dual**
 
 **Standard Forms**  
 Primal (P):  
-minimize $ c^T x $, s.t. $ Ax = b $, $ x \geq 0 $
+minimize $c^T x$, s.t. $Ax = b$, $x \geq 0$
 
 Dual (D):  
-maximize $ b^T p $, s.t. $ A^T p \leq c $, $ p \in \mathbb{R}^m $
+maximize $b^T p$, s.t. $A^T p \leq c$, $p \in \mathbb{R}^m$
 (LP_review.pdf, p.16)
 
 **Duality Theorem**  
-If $ x^* $ and $ p^* $ are optimal for the primal and dual, then:  
-$ c^T x^* = b^T p^* $  
-Also, $ c^T x \geq b^T p $ for any feasible pair.
+If $x^*$ and $p^*$ are optimal for the primal and dual, then:  
+$c^T x^* = b^T p^*$  
+Also, $c^T x \geq b^T p$ for any feasible pair.
 
 **Example**  
 Given a resource allocation LP, the dual may represent shadow prices on the resources.
@@ -160,10 +160,10 @@ Given a resource allocation LP, the dual may represent shadow prices on the reso
 
 ## 8. Explain what is the Steiner tree problem, compare different formulations of it and give an application of the problem.
 **Problem Description**  
-Given a graph with edge costs and a subset of terminal nodes $ T $, the goal is to find a minimum-cost tree connecting all terminals. Additional nodes may be used.
+Given a graph with edge costs and a subset of terminal nodes $T$, the goal is to find a minimum-cost tree connecting all terminals. Additional nodes may be used.
 
 **Formulations**  
-1. **Cutset Formulation**: Require at least one edge between any subset $ S \subset V $, $ S \cap T ≠ ∅ $, and $ T \setminus S ≠ ∅ $  
+1. **Cutset Formulation**: Require at least one edge between any subset $S \subset V$, $S \cap T ≠ ∅$, and $T \setminus S ≠ ∅$  
 2. **Partition Formulation**: Enforce edge cuts over a partition of terminal subsets  
 3. **Directed Flow Formulation**: Use flow from a root to all other terminals to encode connectivity  
 (OD-formulations-2023.pdf, p.20–21)
@@ -184,7 +184,7 @@ Find the shortest possible tour visiting each city exactly once and returning to
 **Formulations**  
 1. **Subtour Elimination**:  
    - Each node has degree 2  
-   - Prevent disconnected cycles: for any subset $ S \subset V $, $ \sum_{e∈E(S)} x_e ≤ |S|-1 $
+   - Prevent disconnected cycles: for any subset $S \subset V$, $\sum_{e∈E(S)} x_e ≤ |S|-1$
 2. **Cutset Formulation**:  
    - Require at least two edges crossing any cut between a proper subset and its complement  
 (OD-formulations-2023.pdf, p.15)
@@ -202,12 +202,12 @@ Find the shortest possible tour visiting each city exactly once and returning to
 Choose which facilities to open and how to assign clients to them, minimizing fixed and assignment costs.
 
 **Formulation 1: Classical**  
-- Binary variable $ y_i = 1 $ if facility $ i $ is open  
-- $ x_{ij} $ = 1 if client $ j $ is assigned to facility $ i $  
-- Constraints: each client assigned to one facility; $ x_{ij} ≤ y_i $
+- Binary variable $y_i = 1$ if facility $i$ is open  
+- $x_{ij}$ = 1 if client $j$ is assigned to facility $i$  
+- Constraints: each client assigned to one facility; $x_{ij} ≤ y_i$
 
 **Formulation 2: Aggregated**  
-- Replace $ x_{ij} ≤ y_i $ with $ ∑_j x_{ij} ≤ n y_i $  
+- Replace $x_{ij} ≤ y_i$ with $∑_j x_{ij} ≤ n y_i$  
 - Weaker: allows fractional assignment in LP relaxation
 
 **Better Formulation**  
@@ -218,15 +218,15 @@ Choose which facilities to open and how to assign clients to them, minimizing fi
 
 ## 11. Explain how to express a piecewise linear function using mixed-integer linear programming.
 **Goal**  
-Model a function $ f(x) $ defined by piecewise linear segments.
+Model a function $f(x)$ defined by piecewise linear segments.
 
 **Modeling Method**  
-- Define $ λ_i $: continuous weights for interpolation  
-- Use binary variables $ y_i $: indicate active segment  
-- Ensure $ ∑ λ_i = 1 $, $ ∑ y_i = 1 $  
+- Define $λ_i$: continuous weights for interpolation  
+- Use binary variables $y_i$: indicate active segment  
+- Ensure $∑ λ_i = 1$, $∑ y_i = 1$  
 - Use constraints to activate only one piece:
-  - $ λ_1 ≤ y_1 $, $ λ_n ≤ y_{n−1} $
-  - $ λ_i ≤ y_{i−1} + y_i $, for $ i = 2, ..., n−1 $
+  - $λ_1 ≤ y_1$, $λ_n ≤ y_{n−1}$
+  - $λ_i ≤ y_{i−1} + y_i$, for $i = 2, ..., n−1$
 (OD-formulations-2023.pdf, p.7)
 
 **Citation**: OD-formulations-2023.pdf, page 7
@@ -272,8 +272,8 @@ A cut is **strong** if it significantly reduces the feasible region without cutt
 
 ## 15. Explain what is the separation problem. Compare with the concept of lazy constraints.
 **Separation Problem**  
-Given a convex set $ X $ and point $ x 
-otin X $, find a hyperplane (valid inequality) separating $ x $ from $ X $.  
+Given a convex set $X$ and point $x 
+otin X$, find a hyperplane (valid inequality) separating $x$ from $X$.  
 Used to dynamically add violated constraints.
 
 **Lazy Constraints**  
@@ -289,11 +289,11 @@ Used to dynamically add violated constraints.
 
 ## 16. Explain the max flow and the min cut problems and give applications of the two problems. Explain a generic way to solve the max flow and the min cut.
 **Max Flow Problem**  
-Send as much flow as possible from a source $ s $ to sink $ t $ through a network.  
+Send as much flow as possible from a source $s$ to sink $t$ through a network.  
 Constraints: flow conservation, capacity limits (OD_flow_2025.pdf, p.2–3)
 
 **Min Cut Problem**  
-Partition nodes into $ S, T $ with $ s ∈ S $, $ t ∈ T $; minimize capacity of edges from $ S $ to $ T $ (OD_flow_2025.pdf, p.4)
+Partition nodes into $S, T$ with $s ∈ S$, $t ∈ T$; minimize capacity of edges from $S$ to $T$ (OD_flow_2025.pdf, p.4)
 
 **Max-Flow Min-Cut Theorem**  
 Maximum flow = minimum cut capacity (OD_flow_2025.pdf, p.14)
